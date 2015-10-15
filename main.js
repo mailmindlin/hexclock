@@ -17,8 +17,8 @@ function updateTime() {
 	var body = document.body;
 	
 	var ht = pad(Math.floor(h * 85/8).toString(16), 2);//255/24 = 85/8
-	var mt = pad(Math.floor(h * 17/4).toString(16), 2);//255/60 = 17/4 
-	var st = pad(Math.floor(h * 17/4).toString(16), 2);
+	var mt = pad(Math.floor(m * 17/4).toString(16), 2);//255/60 = 17/4 
+	var st = pad(Math.floor(s * 17/4).toString(16), 2);
 	var color = '#'+ht+mt+st;
 	$('body').css('backgroundColor', color);
 	$('#timecolor').html(color);
