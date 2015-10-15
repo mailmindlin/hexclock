@@ -39,7 +39,7 @@ function updateTime() {
 
 function init() {
 	$('body')
-	.on('touchstart',function(e) {
+	.on('touchmove',function(e) {
 		console.log(e);
 	});
 	updateTime();
