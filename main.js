@@ -16,17 +16,17 @@ function updateTime() {
 	var s = now.getSeconds();
 	var body = document.body;
 	
-	var ht = pad(Math.floor(h * 85/8).toString(16), 2);//255/24 = 85/8
-	var mt = pad(Math.floor(m * 17/4).toString(16), 2);//255/60 = 17/4 
-	var st = pad(Math.floor(s * 17/4).toString(16), 2);
-	var color = '#'+ht+mt+st;
+	var ht = pad(Math.round(h * 85/8).toString(16), 2);//255/24 = 85/8
+	var mt = pad(Math.round(m * 17/4).toString(16), 2);//255/60 = 17/4 
+	var st = pad(Math.round(s * 17/4).toString(16), 2);
+	var color = '#'+(ht+mt+st).toUpperCase();
 	$('body').css('backgroundColor', color);
 	$('#timecolor').html(color);
 	
-	var hx = pad(h.toString(base).toUpperCase(), padding);
-	var mx = pad(m.toString(base).toUpperCase(), padding);
-	var sx = pad(s.toString(base).toUpperCase(), padding);
-	$('#timetext').html(hx + " : " + mx + " : " + sx);
+	var hx = pad(h.toString(base), padding);
+	var mx = pad(m.toString(base), padding);
+	var sx = pad(s.toString(base), padding);
+	$('#timetext').html((hx + " : " + mx + " : " + sx).toUpperCase());
 	
 	//fix bright/dark background
 	if ((h+m+s)/2 < 110)//if rgb is dark
@@ -38,8 +38,7 @@ function updateTime() {
 }
 
 function init() {
-	$('body')
-	.on('touchmove',function(e) {
+	$('body').on('swipe',function(e) {
 		console.log(e);
 	});
 	updateTime();

@@ -6,21 +6,11 @@ body {
 	left: 0px;
 	background: rgb(20, 50, 8);
 }
-@media all and (max-width: 1024px) {
-	h1 {
-		font-size: 40px;
-	}
-	h2 {
-		font-size: 20px;
-	}
+h1 {
+	font-size: 120px;
 }
-@media all and (min-width: 1024px) {
-	h1 {
-		font-size: 120px;
-	}
-	h2 {
-		30px;
-	}
+h2 {
+	font-size: 30px;
 }
 table {
 	position: fixed;
