@@ -16,22 +16,22 @@ function updateTime() {
 	var s = now.getSeconds();
 	var body = document.body;
 	
-	var ht = pad(Math.round(h * 85/8).toString(16), 2);//255/24 = 85/8
-	var mt = pad(Math.round(m * 17/4).toString(16), 2);//255/60 = 17/4 
-	var st = pad(Math.round(s * 17/4).toString(16), 2);
+	var hadj = Math.round(h * 85/8), madj = Math.round(m * 17/4), sadj = Math.round(s * 17/4);
+	var ht = pad(hadj.toString(16), 2);//255/24 = 85/8
+	var mt = pad(madj.toString(16), 2);//255/60 = 17/4 
+	var st = pad(sadj.toString(16), 2);
 	var color = '#'+(ht+mt+st).toUpperCase();
 	$('body').css('backgroundColor', color);
 	$('#timecolor').html(color);
 	
-	var hx = pad(h.toString(base), padding);
-	var mx = pad(m.toString(base), padding);
-	var sx = pad(s.toString(base), padding);
-	$('#timetext').html((hx + " : " + mx + " : " + sx).toUpperCase());
+	$('#timetext>span#hours').html(pad(h.toString(base).toUpperCase(), padding));
+	$('#timetext>span#minutes').html(pad(m.toString(base).toUpperCase(), padding));
+	$('#timetext>span#seconds').html(pad(s.toString(base).toUpperCase(), padding));
 	
 	//fix bright/dark background
-	if ((h+m+s)/2 < 110)//if rgb is dark
+	if ((hadj + madj + sadj)/2 < 110)//if rgb is dark
 		$('body').addClass('bright');
-	if ((h+m+s)/2 > 155)
+	if ((hadj + madj + sadj)/2 > 155)
 		$('body').removeClass('bright');
 	
 	setTimeout(window.updateTime, 100);//call self again

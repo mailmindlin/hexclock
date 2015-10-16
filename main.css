@@ -33,3 +33,7 @@ h1, h2 {
 body.bright h1, body.bright h2 {
 	color: white;
 }
+#hours, #minutes, #seconds {
+	display: inline-block;
+	width: 138px;
+}
